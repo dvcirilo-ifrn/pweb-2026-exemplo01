@@ -18,7 +18,11 @@
                     <!-- Portfolio Item 1-->
                      {% for prato in pratos %}
                      <div class="card col-md-6 col-lg-4 mb-5 mx-3">
-                        <img class="card-img-top" src="{% static prato.imagem %}" alt="..." />
+                        {% if prato.imagem %}
+                        <img class="card-img-top" src="{{ prato.imagem.url }}" alt="..." />
+                        {% else %}
+                        <img class="card-img-top" src="{% static 'website/assets/img/placeholder.jpg' %}" alt="..." />
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ prato.nome }}</h5>
                             <p class="card-text">
